@@ -1,0 +1,10 @@
+title Single page app - new note
+
+
+note left of selain: tapahtumankäsittelijä rekisteröi tallennusnapin painamisen
+note left of selain: selain luo uuden muistiinpanon ja lisää sen listaan, jossa on kaikki muistiinpanot
+note left of selain: selain tyhjentää tekstikentän
+note left of selain: selain päivittää ruudulla näkyvän muistiinpanolistan
+note left of selain: selain lähettää uuden muistiinpanon palvelimelle
+selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+note right of palvelin: palvelin lisää uuden muistiinpanon omaan listaansa

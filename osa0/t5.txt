@@ -1,0 +1,14 @@
+title Single page app
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
+palvelin->selain: html-koodia
+note left of selain: selain lukee html:stä että mitä pitää vielä hakea
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+palvelin->selain: css-koodia
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
+palvelin->selain: js-koodia
+note left of selain: selain suorittaa js-koodia
+note left of selain: js-koodissa käsky hakea dataa
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+palvelin->selain: [{"content":"HTML is easy","date":"2019-05-23T17:30:31.098Z"},
+note left of selain: selain luo sivulle listan muistiinpanoista
