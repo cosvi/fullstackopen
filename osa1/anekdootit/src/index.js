@@ -1,26 +1,33 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
-const Button = ({setter, text}) => {
+const Button = ({handler, text}) => {
     return (
         <>
-            <button onClick={setter}>{text}</button>
+            <button onClick={handler}>{text}</button>
         </>
     )
 }
 
 const App = ({anecdotes}) => {
     const [selected, setSelected] = useState(0)
+    const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0))
 
-    const pressButton = () => {
+    const nextAnecdote = () => {
         const random = Math.floor(Math.random() * 6)
         setSelected(random)
     }
 
+    const likeAnecdote = () => {
+        setVotes({...votes, [selected]: votes[selected] + 1})
+    }
+
     return (
         <div>
-            {anecdotes[selected]}<br />
-            <Button setter={pressButton} text='Push me' />
+            {anecdotes[selected]}<br /><br />
+            This anecdote has {votes[selected]} likes so far. <br />
+            <Button handler={likeAnecdote} text='Yeah, I kinda like this!' /><br /><br />
+            <Button handler={nextAnecdote} text='Yo, gimme another anecdote' /><br />
         </div>
     )
 }
