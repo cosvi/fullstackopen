@@ -9,9 +9,19 @@ const Button = ({handler, text}) => {
     )
 }
 
+const Leader = ({anecdotes, votes, leader}) => {
+    return (
+        <>
+            With {votes[leader]} votes, the leader is:<br />
+            {anecdotes[leader]}
+        </>
+    )
+}
+
 const App = ({anecdotes}) => {
     const [selected, setSelected] = useState(0)
     const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0))
+    const [leader, setLeader] = useState(0)
 
     const nextAnecdote = () => {
         const random = Math.floor(Math.random() * 6)
@@ -20,14 +30,20 @@ const App = ({anecdotes}) => {
 
     const likeAnecdote = () => {
         setVotes({...votes, [selected]: votes[selected] + 1})
+        if (votes[selected] + 1 > votes[leader]) {
+            setLeader(selected)    
+        }
     }
 
     return (
         <div>
+            <h1>Get your anecdotes here!</h1>
             {anecdotes[selected]}<br /><br />
             This anecdote has {votes[selected]} likes so far. <br />
             <Button handler={likeAnecdote} text='Yeah, I kinda like this!' /><br /><br />
             <Button handler={nextAnecdote} text='Yo, gimme another anecdote' /><br />
+            <h1>And the winner (so far) is...</h1>
+            <Leader anecdotes={anecdotes} votes={votes} leader={leader} />
         </div>
     )
 }
