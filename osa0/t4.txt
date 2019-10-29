@@ -1,14 +1,18 @@
 title Lisää note
 
+note left of selain: käyttäjä kirjoittaa "jepulis" ja painaa nappia
 selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+note right of palvelin: lisää uuden noten
 palvelin->selain: Redirect to /notes
 selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
-palvelin->selain: html-koodia
+palvelin->selain: palauttaa sivun notes
+note left of selain: html:ssä kutsu main.css
 selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
 palvelin->selain: css-koodia
+note left of selain: html:ssä kutsu main.js
 selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
 palvelin->selain: js-koodia
-note left of selain: selain suorittaa saatua js-koodia
+note left of selain: js-koodissa kutsu data.json
 selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
 palvelin->selain: [{"content":"HTML is easy","date":"2019-05-23T17:30:31.098Z"},
-
+note left of selain: näyttää lopullisen sivun
