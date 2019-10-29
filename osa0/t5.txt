@@ -1,10 +1,12 @@
 title Single page app
 
+note left of selain: käyttäjä menee Singel Page Appiin
 selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
 palvelin->selain: html-koodia
-note left of selain: selain lukee html:stä että mitä pitää vielä hakea
+note left of selain: html:ssä kutsu main.css
 selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
 palvelin->selain: css-koodia
+note left of selain: html:ssä kutsu spa.js
 selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
 palvelin->selain: js-koodia
 note left of selain: selain suorittaa js-koodia
