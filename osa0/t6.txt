@@ -8,3 +8,4 @@ note left of selain: selain päivittää ruudulla näkyvän muistiinpanolistan
 note left of selain: selain lähettää uuden muistiinpanon palvelimelle
 selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
 note right of palvelin: palvelin lisää uuden muistiinpanon omaan listaansa
+palvelin->selain: {"message":"note created"}
